@@ -34,6 +34,7 @@
                     android:layout_width="@dimen/_42sdp"
                     android:layout_height="@dimen/_42sdp"
                     android:layout_marginStart="@dimen/_16sdp"
+                    android:backgroundTint="#74EFA9A9"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_44sdp"
                     android:clickable="true"
@@ -87,6 +88,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cv_notification"
                     android:layout_width="@dimen/_42sdp"
+                    android:backgroundTint="#74EFA9A9"
                     android:layout_height="@dimen/_42sdp"
                     android:layout_marginTop="@dimen/_44sdp"
                     android:layout_marginEnd="@dimen/_16sdp"
@@ -103,6 +105,7 @@
                         android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
                         android:alpha="1"
+                        android:backgroundTint="@color/mainColor"
                         android:outlineAmbientShadowColor="#FF5722"
                         android:outlineSpotShadowColor="#FF5722"
                         app:cardCornerRadius="9999dp"
@@ -118,7 +121,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/ic_notification"
-                                app:tint="@color/mainColor" />
+                                app:tint="@color/white" />
                         </RelativeLayout>
 
                     </androidx.cardview.widget.CardView>
