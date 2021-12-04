@@ -17,7 +17,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import com.google.android.material.snackbar.Snackbar
-import lars_lion.dev.o_harid.R
+import uz.lars_lion.voyvoo.R
 import java.io.File
 
 
