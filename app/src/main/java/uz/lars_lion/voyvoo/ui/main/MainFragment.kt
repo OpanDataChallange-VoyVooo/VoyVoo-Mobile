@@ -52,7 +52,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
             }
             onClicks()
-        }, 1000)
+        }, 500)
 
     }
 
@@ -143,9 +143,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     private fun initData() {
         listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
+        listOfPerson.add(Person(R.drawable.ziyoda, "Ziyoda", "300000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.asal, "Asal", "200000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.ozodbek, "Ozodbek", "450000", "Madaniyat Vaziri"))
-        listOfPerson.add(Person(R.drawable.ziyoda, "Ziyoda", "300000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.ulugbek, "Ulug`bek", "120000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
@@ -159,18 +159,21 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun initData1() {
-        listOfOnline.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
-        listOfOnline.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
-        listOfOnline.add(Person(R.drawable.unnamed, "Dilime", "250000", "Viner"))
-        listOfOnline.add(Person(R.drawable.abu, "Abu", "300000", "Viner"))
         listOfOnline.add(Person(R.drawable.ziyoda, "Ziyoda", "300000", "Qo`shiqchi"))
         listOfOnline.add(Person(R.drawable.ulugbek, "Ulug`bek", "120000", "Qo`shiqchi"))
+        listOfOnline.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
+        listOfOnline.add(Person(R.drawable.abu, "Abu", "300000", "Viner"))
+        listOfOnline.add(Person(R.drawable.unnamed, "Dilime", "250000", "Viner"))
+        listOfOnline.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
         listOfOnline.add(Person(R.drawable.mitti, "Mittime", "300000", "Viner"))
         m1Adapter.submitList(listOfOnline)
         binding!!.rvBestseller.adapter = m1Adapter
     }
 
     private fun initData2() {
+        listOfPerson.add(Person(R.drawable.ozodbek, "Ozodbek", "450000", "Madaniyat Vaziri"))
+        listOfPerson.add(Person(R.drawable.ziyoda, "Ziyoda", "300000", "Qo`shiqchi"))
+        listOfPerson.add(Person(R.drawable.asal, "Asal", "200000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.asal, "Asal", "200000", "Qo`shiqchi"))
@@ -179,9 +182,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         listOfPerson.add(Person(R.drawable.ulugbek, "Ulug`bek", "120000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.asal, "Asal", "200000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.ozodbek, "Ozodbek", "450000", "Madaniyat Vaziri"))
-        listOfPerson.add(Person(R.drawable.ziyoda, "Ziyoda", "300000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.ulugbek, "Ulug`bek", "120000", "Qo`shiqchi"))
 
         m2Adapter.submitList(listOfPerson)
