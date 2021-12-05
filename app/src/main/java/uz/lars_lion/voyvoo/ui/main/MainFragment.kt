@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_main.*
 import lars_lion.dev.o_harid.utils.visible
 import uz.lars_lion.voyvoo.R
 import uz.lars_lion.voyvoo.adapter.ItemRvAdapter
@@ -33,7 +34,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         Handler(Looper.getMainLooper()).postDelayed({
             with(binding!!) {
                 watchAnimation.visible(false)
-                watchAnimationJanr.visible(false)
+                watchAnimationUzbHizmat.visible(false)
+                watch_animation_xalq_artisti.visible(false)
+                watch_animation_nihol.visible(false)
                 progressBarBestseller.visible(false)
                 rvNow.visible(true)
                 initData()
@@ -42,6 +45,14 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
             }
         }, 1000)
+
+        onClicks()
+    }
+
+    private fun onClicks() {
+        with(binding!!){
+
+        }
     }
 
     private fun initRv() {
@@ -64,7 +75,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
     private fun initRv2() {
         m2Adapter = ItemRvAdapter()
-        binding!!.rvJanr.apply {
+        binding!!.rvXalqArtisti.apply {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             setHasFixedSize(true)
@@ -121,7 +132,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         listOfPerson.add(Person(R.drawable.ulugbek, "Ulug`bek", "120000", "Qo`shiqchi"))
 
         m2Adapter.submitList(listOfPerson)
-        binding!!.rvJanr.adapter = m2Adapter
+        binding!!.rvXalqArtisti.adapter = m2Adapter
     }
 
 }

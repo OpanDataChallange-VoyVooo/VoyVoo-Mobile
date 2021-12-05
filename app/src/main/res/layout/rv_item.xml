@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_name"
         android:layout_marginTop="@dimen/_2sdp"
-        android:textColor="@color/mainColor"
+        android:textColor="#8A8E9E"
         android:layout_marginStart="@dimen/_4sdp"
         android:fontFamily="@font/g_medium"
         android:id="@+id/tv_spec"/>

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:overScrollMode="never"
     android:layout_height="match_parent"
     android:background="@drawable/back_img"
     tools:context=".ui.main.MainFragment">
@@ -194,6 +195,24 @@
             android:textSize="@dimen/_15ssp"
             app:layout_constraintStart_toStartOf="parent"/>
 
+        <TextView
+            android:id="@+id/tv_bestseller_see_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_bestseller"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bestseller"
+            android:fontFamily="@font/g_regular"
+            android:text="Hammasi"
+            android:drawableTint="@color/white"
+            android:gravity="center"
+            android:drawableEnd="@drawable/ic_next"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <RelativeLayout
             android:id="@+id/rl_bestseller"
             android:layout_width="match_parent"
@@ -241,6 +260,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rl_bestseller" />
 
+
+        <TextView
+            android:id="@+id/tv_now_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_now"
+            app:layout_constraintBottom_toBottomOf="@id/tv_now"
+            android:fontFamily="@font/g_regular"
+            android:text="Hammasi"
+            android:drawableTint="@color/white"
+            android:gravity="center"
+            android:drawableEnd="@drawable/ic_next"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <RelativeLayout
             android:id="@+id/rl1"
             android:layout_width="match_parent"
@@ -250,12 +288,12 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_now"
                 android:layout_width="match_parent"
-                android:paddingStart="@dimen/_8sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:clipToPadding="false"
                 android:layoutAnimation="@anim/layout_animation"
                 android:nestedScrollingEnabled="false"
+                android:paddingStart="@dimen/_8sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             <com.airbnb.lottie.LottieAnimationView
@@ -276,25 +314,44 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_janr"
+            android:id="@+id/tv_xalq_artisti"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:fontFamily="@font/g_bold"
-            android:text="Va boshqalar"
+            android:text="O'zbekiston xalq artistlari"
             android:textColor="@color/white"
             android:textSize="@dimen/_15ssp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rl1" />
 
+        <TextView
+            android:id="@+id/tv_xalq_artisti_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_xalq_artisti"
+            app:layout_constraintBottom_toBottomOf="@id/tv_xalq_artisti"
+            android:fontFamily="@font/g_regular"
+            android:text="Hammasi"
+            android:drawableTint="@color/white"
+            android:gravity="center"
+            android:drawableEnd="@drawable/ic_next"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <RelativeLayout
+            android:id="@+id/rl2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_janr">
+            app:layout_constraintTop_toBottomOf="@id/tv_xalq_artisti">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_janr"
+                android:id="@+id/rv_xalq_artisti"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
@@ -306,7 +363,144 @@
                 app:layout_constraintBottom_toBottomOf="parent" />
 
             <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/watch_animation_janr"
+                android:id="@+id/watch_animation_xalq_artisti"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="loading.json"
+                app:lottie_loop="true"
+                app:lottie_speed="2" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_uzb_hizmat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/g_bold"
+            android:text="O'z-da hizmat ko'rsatgan"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl2" />
+
+
+        <TextView
+            android:id="@+id/tv_tv_uzb_hizmat_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_uzb_hizmat"
+            app:layout_constraintBottom_toBottomOf="@id/tv_uzb_hizmat"
+            android:fontFamily="@font/g_regular"
+            android:text="Hammasi"
+            android:drawableTint="@color/white"
+            android:gravity="center"
+            android:drawableEnd="@drawable/ic_next"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <RelativeLayout
+            android:id="@+id/rl3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_uzb_hizmat">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_uzb_hizmat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:clipToPadding="false"
+                android:layoutAnimation="@anim/layout_animation"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/watch_animation_uzb_hizmat"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="loading.json"
+                app:lottie_loop="true"
+                app:lottie_speed="2" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_nihol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/g_bold"
+            android:text="Nihol mukofoti"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl3" />
+
+
+        <TextView
+            android:id="@+id/tv_nihol_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/tv_nihol"
+            app:layout_constraintBottom_toBottomOf="@id/tv_nihol"
+            android:fontFamily="@font/g_regular"
+            android:text="Hammasi"
+            android:drawableTint="@color/white"
+            android:gravity="center"
+            android:drawableEnd="@drawable/ic_next"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_uzb_hizmat">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_nihol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:clipToPadding="false"
+                android:layoutAnimation="@anim/layout_animation"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/watch_animation_nihol"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_centerInParent="true"

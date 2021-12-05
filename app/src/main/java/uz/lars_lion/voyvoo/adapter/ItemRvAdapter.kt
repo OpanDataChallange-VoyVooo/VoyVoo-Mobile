@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import uz.lars_lion.voyvoo.databinding.RvItemBinding
 import uz.lars_lion.voyvoo.model.Person
 
@@ -15,6 +14,12 @@ class ItemRvAdapter(
 ) : RecyclerView.Adapter<ItemRvAdapter.CreatePageViewHolder>() {
 
     private var dataList = ArrayList<Person>()
+    private var listener: ItemOnClickListener? = null
+
+
+    fun onClickListener(listener: ItemOnClickListener) {
+        this.listener = listener
+    }
 
     private val diffCallBack = object : DiffUtil.ItemCallback<Person>() {
         override fun areItemsTheSame(
@@ -33,7 +38,8 @@ class ItemRvAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         CreatePageViewHolder(
-            RvItemBinding.inflate(LayoutInflater.from(parent.context))
+            RvItemBinding.inflate(LayoutInflater.from(parent.context)),
+            listener
         )
 
     override fun onBindViewHolder(holder: CreatePageViewHolder, position: Int) {
@@ -56,7 +62,9 @@ class ItemRvAdapter(
 
     inner class CreatePageViewHolder
     constructor(
-        private val binding: RvItemBinding
+        private val binding: RvItemBinding,
+        private val listener: ItemOnClickListener?
+
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Person) {
             with(binding) {
@@ -66,11 +74,16 @@ class ItemRvAdapter(
 
 //                imgItem.load(data.imgUrl)
                 imgItem.setImageResource(data.imgUrl)
+
+                root.setOnClickListener {
+                    if (adapterPosition != RecyclerView.NO_POSITION)
+                        listener?.onItemClickOption(adapterPosition, data)
+                }
             }
         }
     }
 
-    interface OptionFormPageAdapterListener {
+    interface ItemOnClickListener {
         fun onItemClickOption(position: Int, data: Person)
     }
 }
