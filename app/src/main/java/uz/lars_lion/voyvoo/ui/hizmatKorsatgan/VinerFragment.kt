@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import lars_lion.dev.o_harid.utils.navigateSafe
 import uz.lars_lion.voyvoo.R
 import uz.lars_lion.voyvoo.adapter.ItemRv1Adapter
 import uz.lars_lion.voyvoo.base.BaseFragment
@@ -31,6 +33,15 @@ class VinerFragment : BaseFragment<FragmentVinerBinding>() {
         initRv()
         initData()
 
+        mAdapter.onClickListener(object : ItemRv1Adapter.ItemOnClickListener {
+            override fun onItemClickOption(position: Int, data: Person) {
+                findNavController().navigateSafe(R.id.action_mainFragment_to_singerFragment)
+            }
+        })
+
+        binding!!.imgBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun initRv() {
@@ -50,9 +61,9 @@ class VinerFragment : BaseFragment<FragmentVinerBinding>() {
     }
 
     private fun initData() {
-        listOfPerson.add(Person(R.drawable.munisa, "Dilime", "250000", "Viner"))
-        listOfPerson.add(Person(R.drawable.rayhon, "Abu", "300000", "Viner"))
-        listOfPerson.add(Person(R.drawable.asal, "Mittime", "200000", "Viner"))
+        listOfPerson.add(Person(R.drawable.unnamed, "Dilime", "250000", "Viner"))
+        listOfPerson.add(Person(R.drawable.abu, "Abu", "300000", "Viner"))
+        listOfPerson.add(Person(R.drawable.mitti, "Mittime", "200000", "Viner"))
 
         mAdapter.submitList(listOfPerson)
         binding!!.rv.adapter = mAdapter
@@ -61,14 +72,15 @@ class VinerFragment : BaseFragment<FragmentVinerBinding>() {
 
 }
 
-class ItemDecorationAlbumColumns(private val mSizeGridSpacingPx: Int, private val mGridSize: Int) : ItemDecoration() {
+class ItemDecorationAlbumColumns(private val mSizeGridSpacingPx: Int, private val mGridSize: Int) :
+    ItemDecoration() {
     private var mNeedLeftSpacing = false
-   override fun getItemOffsets(
-       outRect: Rect,
-       view: View,
-       parent: RecyclerView,
-       state: RecyclerView.State
-   ) {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
         val frameWidth =
             ((parent.width - mSizeGridSpacingPx.toFloat() * (mGridSize - 1)) / mGridSize).toInt()
         val padding = parent.width / mGridSize - frameWidth
