@@ -1,22 +1,22 @@
-package uz.lars_lion.voyvoo.ui.main.xalqArtisti
+package uz.lars_lion.voyvoo.ui.singer
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uz.lars_lion.voyvoo.base.BaseFragment
-import uz.lars_lion.voyvoo.databinding.FragmentXalqArtistiBinding
+import uz.lars_lion.voyvoo.databinding.FragmentSingerBinding
 
-class XalqArtistiFragment :BaseFragment<FragmentXalqArtistiBinding>() {
+class SingerFragment : BaseFragment<FragmentSingerBinding>() {
     override fun setBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentXalqArtistiBinding = FragmentXalqArtistiBinding.inflate(layoutInflater)
+    ): FragmentSingerBinding  = FragmentSingerBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        
     }
 
 }

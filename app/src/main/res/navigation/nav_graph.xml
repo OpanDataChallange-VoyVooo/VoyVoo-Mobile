@@ -9,5 +9,46 @@
         android:id="@+id/mainFragment"
         android:name="uz.lars_lion.voyvoo.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_hizmatKorsatganFragment"
+            app:destination="@id/hizmatKorsatganFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_onlineFragment"
+            app:destination="@id/onlineFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_singerFragment"
+            app:destination="@id/singerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_topFragment"
+            app:destination="@id/topFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_xalqArtistiFragment"
+            app:destination="@id/xalqArtistiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hizmatKorsatganFragment"
+        android:name="uz.lars_lion.voyvoo.ui.hizmatKorsatgan.HizmatKorsatganFragment"
+        android:label="fragment_hizmat_korsatgan"
+        tools:layout="@layout/fragment_hizmat_korsatgan" />
+    <fragment
+        android:id="@+id/onlineFragment"
+        android:name="uz.lars_lion.voyvoo.ui.online.OnlineFragment"
+        android:label="fragment_online"
+        tools:layout="@layout/fragment_online" />
+    <fragment
+        android:id="@+id/singerFragment"
+        android:name="uz.lars_lion.voyvoo.ui.singer.SingerFragment"
+        android:label="fragment_singer"
+        tools:layout="@layout/fragment_singer" />
+    <fragment
+        android:id="@+id/topFragment"
+        android:name="uz.lars_lion.voyvoo.ui.top.TopFragment"
+        android:label="fragment_top"
+        tools:layout="@layout/fragment_top" />
+    <fragment
+        android:id="@+id/xalqArtistiFragment"
+        android:name="uz.lars_lion.voyvoo.ui.xalqArtisti.XalqArtistiFragment"
+        android:label="fragment_xalq_artisti"
+        tools:layout="@layout/fragment_xalq_artisti" />
 </navigation>

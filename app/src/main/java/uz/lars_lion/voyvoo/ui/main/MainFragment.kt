@@ -6,8 +6,10 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_main.*
+import lars_lion.dev.o_harid.utils.navigateSafe
 import lars_lion.dev.o_harid.utils.visible
 import uz.lars_lion.voyvoo.R
 import uz.lars_lion.voyvoo.adapter.ItemRvAdapter
@@ -50,8 +52,30 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun onClicks() {
-        with(binding!!){
+        with(binding!!) {
+            tvBestsellerSeeAll.setOnClickListener{
+                findNavController().navigateSafe(R.id.action_mainFragment_to_onlineFragment)
 
+            }
+
+            tvNiholAll.setOnClickListener {
+                findNavController().navigateSafe(R.id.action_mainFragment_to_onlineFragment)
+
+            }
+
+            tvNowAll.setOnClickListener {
+            findNavController().navigateSafe(R.id.action_mainFragment_to_topFragment)
+            }
+
+            tvTvUzbHizmatAll.setOnClickListener {
+                findNavController().navigateSafe(R.id.action_mainFragment_to_hizmatKorsatganFragment)
+
+            }
+
+            tvXalqArtistiAll.setOnClickListener {
+                findNavController().navigateSafe(R.id.action_mainFragment_to_xalqArtistiFragment)
+
+            }
         }
     }
 
@@ -64,6 +88,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             adapter = mAdapter
         }
     }
+
     private fun initRv1() {
         m1Adapter = ItemRvAdapter()
         binding!!.rvBestseller.apply {
@@ -73,6 +98,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             adapter = m1Adapter
         }
     }
+
     private fun initRv2() {
         m2Adapter = ItemRvAdapter()
         binding!!.rvXalqArtisti.apply {
@@ -100,6 +126,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         mAdapter.submitList(listOfPerson)
         binding!!.rvNow.adapter = mAdapter
     }
+
     private fun initData1() {
         listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
@@ -117,6 +144,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         m1Adapter.submitList(listOfPerson)
         binding!!.rvBestseller.adapter = m1Adapter
     }
+
     private fun initData2() {
         listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
         listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
