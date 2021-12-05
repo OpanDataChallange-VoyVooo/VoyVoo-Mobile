@@ -28,9 +28,9 @@
     </fragment>
     <fragment
         android:id="@+id/hizmatKorsatganFragment"
-        android:name="uz.lars_lion.voyvoo.ui.hizmatKorsatgan.HizmatKorsatganFragment"
+        android:name="uz.lars_lion.voyvoo.ui.hizmatKorsatgan.VinerFragment"
         android:label="fragment_hizmat_korsatgan"
-        tools:layout="@layout/fragment_hizmat_korsatgan" />
+        tools:layout="@layout/fragment_viner" />
     <fragment
         android:id="@+id/onlineFragment"
         android:name="uz.lars_lion.voyvoo.ui.online.OnlineFragment"

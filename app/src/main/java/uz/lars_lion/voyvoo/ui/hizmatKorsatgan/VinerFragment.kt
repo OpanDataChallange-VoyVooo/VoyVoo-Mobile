@@ -1,28 +1,21 @@
 package uz.lars_lion.voyvoo.ui.hizmatKorsatgan
 
-import android.content.Context
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.core.app.ApplicationProvider
-import uz.lars_lion.voyvoo.adapter.ItemRv1Adapter
-import uz.lars_lion.voyvoo.adapter.ItemRvAdapter
-import uz.lars_lion.voyvoo.base.BaseFragment
-import uz.lars_lion.voyvoo.databinding.FragmentHizmatKorsatganBinding
-import uz.lars_lion.voyvoo.model.Person
-import com.google.android.material.internal.ViewUtils.dpToPx
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import uz.lars_lion.voyvoo.R
+import uz.lars_lion.voyvoo.adapter.ItemRv1Adapter
+import uz.lars_lion.voyvoo.base.BaseFragment
+import uz.lars_lion.voyvoo.databinding.FragmentVinerBinding
+import uz.lars_lion.voyvoo.model.Person
 
 
-class HizmatKorsatganFragment : BaseFragment<FragmentHizmatKorsatganBinding>() {
+class VinerFragment : BaseFragment<FragmentVinerBinding>() {
 
     lateinit var mAdapter: ItemRv1Adapter
     val listOfPerson = ArrayList<Person>()
@@ -30,7 +23,7 @@ class HizmatKorsatganFragment : BaseFragment<FragmentHizmatKorsatganBinding>() {
     override fun setBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentHizmatKorsatganBinding = FragmentHizmatKorsatganBinding.inflate(layoutInflater)
+    ): FragmentVinerBinding = FragmentVinerBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,18 +50,9 @@ class HizmatKorsatganFragment : BaseFragment<FragmentHizmatKorsatganBinding>() {
     }
 
     private fun initData() {
-        listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.asal, "Asal", "200000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.ozodbek, "Ozodbek", "450000", "Madaniyat Vaziri"))
-        listOfPerson.add(Person(R.drawable.ziyoda, "Ziyoda", "300000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.ulugbek, "Ulug`bek", "120000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.munisa, "Munisa", "250000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.rayhon, "Rayhon", "300000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.asal, "Asal", "200000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.ozodbek, "Ozodbek", "450000", "Madaniyat Vaziri"))
-        listOfPerson.add(Person(R.drawable.ziyoda, "Ziyoda", "300000", "Qo`shiqchi"))
-        listOfPerson.add(Person(R.drawable.ulugbek, "Ulug`bek", "120000", "Qo`shiqchi"))
+        listOfPerson.add(Person(R.drawable.munisa, "Dilime", "250000", "Viner"))
+        listOfPerson.add(Person(R.drawable.rayhon, "Abu", "300000", "Viner"))
+        listOfPerson.add(Person(R.drawable.asal, "Mittime", "200000", "Viner"))
 
         mAdapter.submitList(listOfPerson)
         binding!!.rv.adapter = mAdapter
