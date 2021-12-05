@@ -1,5 +1,7 @@
 package uz.lars_lion.voyvoo.ui.hizmatKorsatgan
 
+import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +9,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import uz.lars_lion.voyvoo.R
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ApplicationProvider
+import uz.lars_lion.voyvoo.adapter.ItemRv1Adapter
 import uz.lars_lion.voyvoo.adapter.ItemRvAdapter
 import uz.lars_lion.voyvoo.base.BaseFragment
 import uz.lars_lion.voyvoo.databinding.FragmentHizmatKorsatganBinding
 import uz.lars_lion.voyvoo.model.Person
+import com.google.android.material.internal.ViewUtils.dpToPx
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import uz.lars_lion.voyvoo.R
+
 
 class HizmatKorsatganFragment : BaseFragment<FragmentHizmatKorsatganBinding>() {
-    lateinit var mAdapter: ItemRvAdapter
+
+    lateinit var mAdapter: ItemRv1Adapter
     val listOfPerson = ArrayList<Person>()
 
     override fun setBinding(
@@ -31,17 +41,16 @@ class HizmatKorsatganFragment : BaseFragment<FragmentHizmatKorsatganBinding>() {
     }
 
     private fun initRv() {
-        mAdapter = ItemRvAdapter()
+        mAdapter = ItemRv1Adapter()
         binding!!.rv.apply {
-            layoutManager = GridLayoutManager(requireContext(), 2)
+            layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
             setHasFixedSize(true)
-            itemAnimator = DefaultItemAnimator()
-            val Hdivider =
-                DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL)
-            val Vdivider =
-                DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-            addItemDecoration(Hdivider)
-            addItemDecoration(Vdivider)
+            addItemDecoration(
+                ItemDecorationAlbumColumns(
+                    resources.getDimensionPixelSize(R.dimen.photos_list_spacing),
+                    resources.getInteger(R.integer.photo_list_preview_columns)
+                )
+            )
             adapter = mAdapter
         }
 
@@ -66,4 +75,50 @@ class HizmatKorsatganFragment : BaseFragment<FragmentHizmatKorsatganBinding>() {
     }
 
 
+}
+
+class ItemDecorationAlbumColumns(private val mSizeGridSpacingPx: Int, private val mGridSize: Int) : ItemDecoration() {
+    private var mNeedLeftSpacing = false
+   override fun getItemOffsets(
+       outRect: Rect,
+       view: View,
+       parent: RecyclerView,
+       state: RecyclerView.State
+   ) {
+        val frameWidth =
+            ((parent.width - mSizeGridSpacingPx.toFloat() * (mGridSize - 1)) / mGridSize).toInt()
+        val padding = parent.width / mGridSize - frameWidth
+        val itemPosition = (view.layoutParams as RecyclerView.LayoutParams).viewAdapterPosition
+        if (itemPosition < mGridSize) {
+            outRect.top = 0
+        } else {
+            outRect.top = mSizeGridSpacingPx
+        }
+        if (itemPosition % mGridSize == 0) {
+            outRect.left = 0
+            outRect.right = padding
+            mNeedLeftSpacing = true
+        } else if ((itemPosition + 1) % mGridSize == 0) {
+            mNeedLeftSpacing = false
+            outRect.right = 0
+            outRect.left = padding
+        } else if (mNeedLeftSpacing) {
+            mNeedLeftSpacing = false
+            outRect.left = mSizeGridSpacingPx - padding
+            if ((itemPosition + 2) % mGridSize == 0) {
+                outRect.right = mSizeGridSpacingPx - padding
+            } else {
+                outRect.right = mSizeGridSpacingPx / 2
+            }
+        } else if ((itemPosition + 2) % mGridSize == 0) {
+            mNeedLeftSpacing = false
+            outRect.left = mSizeGridSpacingPx / 2
+            outRect.right = mSizeGridSpacingPx - padding
+        } else {
+            mNeedLeftSpacing = false
+            outRect.left = mSizeGridSpacingPx / 2
+            outRect.right = mSizeGridSpacingPx / 2
+        }
+        outRect.bottom = 0
+    }
 }
